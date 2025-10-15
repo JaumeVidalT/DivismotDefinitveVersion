@@ -13,7 +13,6 @@ using UnityEngine.UI;
 
 public class GamePlayManager : MonoBehaviour
 {
-    public static GamePlayManager instance { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private string playerWord;
     private int wordSize;
@@ -25,22 +24,19 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] private Image BackgroundOrderedButtons;
     [SerializeField] private Image BackgroundUnorderedbuttons;
 
-    private List<Word> wordManager = new List<Word>();
 
     private float DistanceWithBorders = 25;
     [SerializeField] private GameObject buttonPrefab;
 
+    [SerializeField] private Button NextWordButton;
+
     private bool startSong;
-    [SerializeField]private Button NextWordButton;
+    private bool songStarted;
+
+    private List<Word> wordManager = new List<Word>();
+
     void Start()
     {
-        if (instance != null) 
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);//Esto hace que no se destruya entre escenas edu perdoname
         wordManager.Add(new Word("grocs", "grosc"));
         wordManager.Add(new Word("tardor", "radtro"));
         wordManager.Add(new Word("menjo", "jomne"));
@@ -61,9 +57,10 @@ public class GamePlayManager : MonoBehaviour
 
         wordOrder = 0;
         startSong = false;
+        songStarted = false;
         letterPosition = 0;
 
-        NextWordButton.gameObject.SetActive(false);
+        SetActivButton(NextWordButton, false);
         SetNewButtons();
 
     }
@@ -76,20 +73,20 @@ public class GamePlayManager : MonoBehaviour
             SceneManager.LoadScene("SongScene");
             return;
         }
-        if (wordOrder >= wordManager.Count && !startSong)//Transition
+        if (wordOrder >= wordManager.Count() && !startSong)//Transition
         {
             Destroy(NextWordButton.gameObject);
             CleanButtons();
             startSong = true;
             return;
         }
-        if (wordSize == playerWord.Length&& wordManager.Count>wordOrder&&!startSong)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
+        if (wordSize == playerWord.Length&& wordManager.Count()> wordOrder&&!startSong)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
         {
             if (wordManager[wordOrder].CheckCorrectWord(playerWord))
             {
                 Debug.Log("Victory");
             }
-            NextWordButton.gameObject.SetActive(true);
+            SetActivButton(NextWordButton, true);       
                         
         }
         
@@ -102,7 +99,7 @@ public class GamePlayManager : MonoBehaviour
         ++wordOrder;
         CleanButtons();
         SetNewButtons();
-        NextWordButton.gameObject.SetActive(false);
+        SetActivButton(NextWordButton, false);
     }
     private void CleanButtons()
     {
@@ -113,10 +110,18 @@ public class GamePlayManager : MonoBehaviour
     }
     public void AddLetter(string letter)
     {
-        OrderedButtons[letterPosition].gameObject.SetActive(true);
+        SetActivButton(OrderedButtons[letterPosition], true);
         OrderedButtons[letterPosition].GetComponentInChildren<TextMeshProUGUI>().text = letter ;
         playerWord += letter;
         letterPosition++;
+    }
+    private void SetActivButton(Button button,bool state)
+    {
+        button.gameObject.SetActive(state);
+    }
+    public void DesactiveLetter(int buttonPosition)
+    {
+        UnorderedButtons[buttonPosition].gameObject.SetActive(false);
     }
     private float GetNewWidth(float buttonOffSetX)
     {
@@ -169,7 +174,9 @@ public class GamePlayManager : MonoBehaviour
             UnorderedButtons[i].onClick.RemoveAllListeners();
 
             char letterCopy = letter;
+            int numberButtonCopy = i;
             UnorderedButtons[i].onClick.AddListener(() => AddLetter(letterCopy.ToString()));
+            UnorderedButtons[i].onClick.AddListener(() => DesactiveLetter(numberButtonCopy));
         }
 
     }
