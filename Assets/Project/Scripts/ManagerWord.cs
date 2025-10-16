@@ -6,7 +6,7 @@ public class WordManager : MonoBehaviour
     private List<Word> wordManager = new List<Word>();
     public static WordManager instance { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         if (instance != null)
         {
@@ -39,6 +39,7 @@ public class WordManager : MonoBehaviour
         return wordManager[wordPosition];
     }
     public int WordManagerCount() { return wordManager.Count; }
+
 
 
 

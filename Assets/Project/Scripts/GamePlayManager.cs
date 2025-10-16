@@ -30,34 +30,12 @@ public class GamePlayManager : MonoBehaviour
 
     [SerializeField] private Button NextWordButton;
 
-    private bool startSong;
-    private bool songStarted;
-
-    private List<Word> wordManager = new List<Word>();
-
+    private bool startSong;    
     void Start()
     {
-        wordManager.Add(new Word("grocs", "grosc"));
-        wordManager.Add(new Word("tardor", "radtro"));
-        wordManager.Add(new Word("menjo", "jomne"));
-        wordManager.Add(new Word("marrons", "srramon"));
-        wordManager.Add(new Word("arribat", "batrira"));
-        wordManager.Add(new Word("carrer", "rerarc"));
-        wordManager.Add(new Word("torrem", "retorm"));
-        wordManager.Add(new Word("bolets", "tlesob"));
-        wordManager.Add(new Word("fulles", "sllfeu"));
-        wordManager.Add(new Word("àvia", "viaà"));
-        wordManager.Add(new Word("pressa", "sapres"));
-        wordManager.Add(new Word("bosc", "csob"));
-        wordManager.Add(new Word("tornem", "nemotr"));
-        wordManager.Add(new Word("castanyes", "stacnesay"));
-        wordManager.Add(new Word("cauen", "neuca"));
-        wordManager.Add(new Word("fred", "rdef"));
-        wordManager.Add(new Word("cacem", "mcaec"));
 
         wordOrder = 0;
         startSong = false;
-        songStarted = false;
         letterPosition = 0;
 
         SetActivButton(NextWordButton, false);
@@ -73,16 +51,16 @@ public class GamePlayManager : MonoBehaviour
             SceneManager.LoadScene("SongScene");
             return;
         }
-        if (wordOrder >= wordManager.Count() && !startSong)//Transition
+        if (wordOrder >= WordManager.instance.WordManagerCount() && !startSong)//Transition
         {
             Destroy(NextWordButton.gameObject);
             CleanButtons();
             startSong = true;
             return;
         }
-        if (wordSize == playerWord.Length&& wordManager.Count()> wordOrder&&!startSong)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
+        if (wordSize == playerWord.Length&& WordManager.instance.WordManagerCount()>wordOrder&&!startSong)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
         {
-            if (wordManager[wordOrder].CheckCorrectWord(playerWord))
+            if (WordManager.instance.GetWord(wordOrder).CheckCorrectWord(playerWord))
             {
                 Debug.Log("Victory");
             }
@@ -144,7 +122,7 @@ public class GamePlayManager : MonoBehaviour
     {
         playerWord ="";
         letterPosition = 0;
-        wordSize = wordManager[wordOrder].GetCorrectWord().Length;
+        wordSize = WordManager.instance.GetWord(wordOrder).GetCorrectWord().Length;
 
         RectTransform ButtonPrefabRectangle = buttonPrefab.GetComponent<RectTransform>();
         float buttonOffSetX = ButtonPrefabRectangle.rect.width / 2 + DistanceWithBorders;
@@ -168,7 +146,7 @@ public class GamePlayManager : MonoBehaviour
         for (int i = 0; i < wordSize; i++)
         {
 
-            char letter = wordManager[wordOrder].GetDesorderedWord()[i];
+            char letter = WordManager.instance.GetWord(wordOrder).GetDesorderedWord()[i];
             UnorderedButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
 
             UnorderedButtons[i].onClick.RemoveAllListeners();

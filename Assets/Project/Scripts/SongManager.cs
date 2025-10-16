@@ -11,8 +11,10 @@ public class SongManager : MonoBehaviour
     [SerializeField] private Image dimoniBar;
     private int wordOrder;
     float dimoniTimer;
+    float initialTimer;
     void Start()    
     {
+        initialTimer = 0;
         dimoniTimer = 10;
         for(int i = 0; i<WordManager.instance.WordManagerCount();++i)
         {
@@ -27,7 +29,7 @@ public class SongManager : MonoBehaviour
     void Update()
     {
         DimoniTimerUpdate();
-        if (Time.time% dimoniTimer <= 0)
+        if (dimoniBar.fillAmount == 1)
         {
             wordTexts[wordOrder].text= WordManager.instance.GetWord(wordOrder).GetDesorderedWord();
             ++wordOrder;
@@ -36,15 +38,20 @@ public class SongManager : MonoBehaviour
     }
     private void DimoniTimerUpdate()
     {
-        dimoniBar.fillAmount = Time.time % dimoniTimer;
+        float timeInCycle = Mathf.Repeat(Time.time, dimoniTimer)-initialTimer;
+
+        float fill = timeInCycle / dimoniTimer;
+
+        dimoniBar.fillAmount = fill;
     }
     public void AddWordToSong(int buttonPosition)
     {        
-        /*if()
+        if(WordManager.instance.GetWord(buttonPosition).CheckCorrectWord(WordManager.instance.GetWord(wordOrder).GetCorrectWord()))
         {
             wordTexts[wordOrder].text = wordButtons[buttonPosition].GetComponentInChildren<TextMeshProUGUI>().text;
             ++wordOrder;
-        }*/
+            initialTimer = Time.time;
+        }
     }
     
 }
