@@ -19,8 +19,12 @@ public class GamePlayManager : MonoBehaviour
     private int wordOrder;
     private int letterPosition;
 
+
     [SerializeField] private List<Button> UnorderedButtons=new List<Button>();
     [SerializeField] private List<Button> OrderedButtons=new List<Button>();
+    [SerializeField] private Sprite correctWord;
+    [SerializeField] private Sprite incorrectWord;
+
     [SerializeField] private Image BackgroundOrderedButtons;
     [SerializeField] private Image BackgroundUnorderedbuttons;
 
@@ -62,7 +66,7 @@ public class GamePlayManager : MonoBehaviour
         {
             if (WordManager.instance.GetWord(wordOrder).CheckCorrectWord(playerWord))
             {
-                Debug.Log("Victory");
+                OrderedButtons[wordOrder].GetComponent<Image>().color = Color.green;
             }
             SetActivButton(NextWordButton, true);       
                         
@@ -88,9 +92,18 @@ public class GamePlayManager : MonoBehaviour
     }
     public void AddLetter(string letter)
     {
+        if (letter == WordManager.instance.GetWord(wordOrder).GetCorrectWord()[letterPosition].ToString())
+        {
+            OrderedButtons[letterPosition].GetComponent<Image>().sprite = correctWord;
+        }
+        else
+        {
+            OrderedButtons[letterPosition].GetComponent<Image>().sprite = incorrectWord;
+        }
         SetActivButton(OrderedButtons[letterPosition], true);
         OrderedButtons[letterPosition].GetComponentInChildren<TextMeshProUGUI>().text = letter ;
         playerWord += letter;
+        
         letterPosition++;
     }
     private void SetActivButton(Button button,bool state)

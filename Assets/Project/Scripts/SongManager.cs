@@ -22,6 +22,7 @@ public class SongManager : MonoBehaviour
             int buttonPosition = i;
             wordButtons[i].onClick.AddListener(()=>AddWordToSong(buttonPosition));
         }
+        WordManager.instance.newOrderForSong();
         
     }
 
@@ -29,24 +30,29 @@ public class SongManager : MonoBehaviour
     void Update()
     {
         DimoniTimerUpdate();
-        if (dimoniBar.fillAmount == 1)
+        if (dimoniBar.fillAmount == 1 &&WordManager.instance.WordManagerCount()>wordOrder)
         {
             wordTexts[wordOrder].text= WordManager.instance.GetWord(wordOrder).GetDesorderedWord();
             ++wordOrder;
+            initialTimer = Time.time;
+        }
+        else
+        {
+
         }
         
     }
     private void DimoniTimerUpdate()
     {
-        float timeInCycle = Mathf.Repeat(Time.time, dimoniTimer)-initialTimer;
+        float timeInCycle = Time.time-initialTimer;
 
         float fill = timeInCycle / dimoniTimer;
 
         dimoniBar.fillAmount = fill;
     }
     public void AddWordToSong(int buttonPosition)
-    {        
-        if(WordManager.instance.GetWord(buttonPosition).CheckCorrectWord(WordManager.instance.GetWord(wordOrder).GetCorrectWord()))
+    {
+        if (wordButtons[buttonPosition].GetComponentInChildren<TextMeshProUGUI>().text==WordManager.instance.GetWord(wordOrder).GetCorrectWord())
         {
             wordTexts[wordOrder].text = wordButtons[buttonPosition].GetComponentInChildren<TextMeshProUGUI>().text;
             ++wordOrder;

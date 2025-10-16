@@ -40,6 +40,29 @@ public class WordManager : MonoBehaviour
     }
     public int WordManagerCount() { return wordManager.Count; }
 
+    public void newOrderForSong()
+    {
+        wordManager.Clear();
+
+        wordManager.Add(new Word("bosc", "csob"));
+        wordManager.Add(new Word("tornem", "nemotr"));
+        wordManager.Add(new Word("bolets", "tlesob"));
+        wordManager.Add(new Word("cauen", "neuca"));
+        wordManager.Add(new Word("castanyes", "stacnesay"));
+        wordManager.Add(new Word("cacem", "mcaec"));
+        wordManager.Add(new Word("fred", "rdef"));
+        wordManager.Add(new Word("fulles", "sllfeu"));
+        wordManager.Add(new Word("bosc", "csob"));
+        wordManager.Add(new Word("tornem", "nemotr"));
+        wordManager.Add(new Word("bolets", "tlesob"));
+        wordManager.Add(new Word("cauen", "neuca"));
+        wordManager.Add(new Word("castanyes", "stacnesay"));
+        wordManager.Add(new Word("cacem", "mcaec"));
+        wordManager.Add(new Word("fred", "rdef"));     
+
+
+    }
+
 
 
 
