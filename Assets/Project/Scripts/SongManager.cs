@@ -14,7 +14,7 @@ public class SongManager : MonoBehaviour
     float initialTimer;
     void Start()    
     {
-        initialTimer = 0;
+        initialTimer = Time.time;
         dimoniTimer = 10;
         for(int i = 0; i<WordManager.instance.WordManagerCount();++i)
         {
@@ -33,6 +33,7 @@ public class SongManager : MonoBehaviour
         if (dimoniBar.fillAmount == 1 &&WordManager.instance.WordManagerCount()>wordOrder)
         {
             wordTexts[wordOrder].text= WordManager.instance.GetWord(wordOrder).GetDesorderedWord();
+            wordTexts[wordOrder].color = Color.red;
             ++wordOrder;
             initialTimer = Time.time;
         }
@@ -55,6 +56,7 @@ public class SongManager : MonoBehaviour
         if (wordButtons[buttonPosition].GetComponentInChildren<TextMeshProUGUI>().text==WordManager.instance.GetWord(wordOrder).GetCorrectWord())
         {
             wordTexts[wordOrder].text = wordButtons[buttonPosition].GetComponentInChildren<TextMeshProUGUI>().text;
+            wordTexts[wordOrder].color = Color.green;
             ++wordOrder;
             initialTimer = Time.time;
         }
