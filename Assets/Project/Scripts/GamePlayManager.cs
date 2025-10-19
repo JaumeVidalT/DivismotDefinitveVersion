@@ -29,21 +29,24 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] private Image BackgroundUnorderedbuttons;
 
 
-    private float DistanceWithBorders = 25;
+    private float DistanceWithBorders = 60;
     [SerializeField] private GameObject buttonPrefab;
 
     [SerializeField] private Button NextWordButton;
+    [SerializeField] private GameObject background;
 
+    private float fillAmountAdd;
     private bool startSong;    
     void Start()
     {
-
+        fillAmountAdd = 1.0f / WordManager.instance.WordManagerCount();
         wordOrder = 0;
         startSong = false;
         letterPosition = 0;
 
         SetActivButton(NextWordButton, false);
         SetNewButtons();
+        StarManager.instance.SetStarsOnScene(background);
 
     }
 
@@ -52,7 +55,7 @@ public class GamePlayManager : MonoBehaviour
     {
         if (startSong)//Song Gameplay
         {
-            SceneManager.LoadScene("SongScene");
+            SceneManager.LoadScene(2);
             return;
         }
         if (wordOrder >= WordManager.instance.WordManagerCount() && !startSong)//Transition
@@ -62,12 +65,12 @@ public class GamePlayManager : MonoBehaviour
             startSong = true;
             return;
         }
-        if (wordSize == playerWord.Length&& WordManager.instance.WordManagerCount()>wordOrder&&!startSong)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
+        if (wordSize == playerWord.Length&& WordManager.instance.WordManagerCount()>wordOrder)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
         {
             if (WordManager.instance.GetWord(wordOrder).CheckCorrectWord(playerWord))
             {
-                OrderedButtons[wordOrder].GetComponent<Image>().color = Color.green;
-            }
+                StarManager.instance.AddFillAmount(fillAmountAdd);
+                }
             SetActivButton(NextWordButton, true);       
                         
         }
@@ -114,9 +117,9 @@ public class GamePlayManager : MonoBehaviour
     {
         UnorderedButtons[buttonPosition].gameObject.SetActive(false);
     }
-    private float GetNewWidth(float buttonOffSetX)
+    private float GetNewWidth(float buttonWidth)
     {
-        return (wordSize * buttonOffSetX) + buttonOffSetX;
+        return (wordSize * buttonWidth) + (DistanceWithBorders*2);
     }
     private Button GetButton(Image background, UnityEngine.Vector3 newPositionPrefab)
     {
@@ -139,15 +142,15 @@ public class GamePlayManager : MonoBehaviour
 
         RectTransform ButtonPrefabRectangle = buttonPrefab.GetComponent<RectTransform>();
         float buttonOffSetX = ButtonPrefabRectangle.rect.width / 2 + DistanceWithBorders;
-
-        ModifyWidth(BackgroundOrderedButtons, GetNewWidth(buttonOffSetX));
-        ModifyWidth(BackgroundUnorderedbuttons, GetNewWidth(buttonOffSetX));
+        float newWidth = GetNewWidth(ButtonPrefabRectangle.rect.width);
+        ModifyWidth(BackgroundOrderedButtons, newWidth);
+        ModifyWidth(BackgroundUnorderedbuttons, newWidth);
 
         float initialPos=0;
-        initialPos -= ((GetNewWidth(buttonOffSetX) / 2.0f)-buttonOffSetX);
+        initialPos -= (newWidth / 2.0f)-(buttonOffSetX);
         for(int i = 0;i<wordSize;i++)
         {
-            UnityEngine.Vector3 newPositionPrefab = new UnityEngine.Vector3((initialPos + (buttonOffSetX * i)), 0, 0);
+            UnityEngine.Vector3 newPositionPrefab = new UnityEngine.Vector3((initialPos + (ButtonPrefabRectangle.rect.width * i)), 0, 0);
             OrderedButtons.Add(GetButton(BackgroundOrderedButtons, newPositionPrefab));
             UnorderedButtons.Add(GetButton(BackgroundUnorderedbuttons, newPositionPrefab));
             
