@@ -11,6 +11,7 @@ public class SongManager : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> wordTexts = new List<TextMeshProUGUI>();
     [SerializeField] private List<Image> versos= new List<Image>();
     [SerializeField] private Image dimoniBar;
+    [SerializeField] private GameObject background;
     private int wordOrder;
     float dimoniTimer;
     float initialTimer;
@@ -28,6 +29,7 @@ public class SongManager : MonoBehaviour
         WordManager.instance.newOrderForSong();
         versos[wordOrder].gameObject.SetActive(true);
         DimoniActive = true;
+        StarManager.instance.SetStarsOnScene(background);
     }
 
     // Update is called once per frame
