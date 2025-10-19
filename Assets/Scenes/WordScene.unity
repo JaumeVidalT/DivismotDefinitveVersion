@@ -522,8 +522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnorderedButtons: []
   OrderedButtons: []
-  correctWord: {fileID: -7851521629313915907, guid: 60b12e85dfaa8d34cb2d49f4ec5fbaa9, type: 3}
-  incorrectWord: {fileID: -8345494360459885033, guid: 4fdf779cf1d08b24a87f300a95be907a, type: 3}
+  correctWord: {fileID: 21300000, guid: 60b12e85dfaa8d34cb2d49f4ec5fbaa9, type: 3}
+  incorrectWord: {fileID: 21300000, guid: 4fdf779cf1d08b24a87f300a95be907a, type: 3}
   BackgroundOrderedButtons: {fileID: 1801886436}
   BackgroundUnorderedbuttons: {fileID: 957681885}
   buttonPrefab: {fileID: 675892476372357725, guid: 3d691f18a2dd32740893a11d89e50d10, type: 3}
@@ -643,7 +643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6427283172715441249, guid: 53bca7fc4637edd4b8ae32cdc41a3bef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53bca7fc4637edd4b8ae32cdc41a3bef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
