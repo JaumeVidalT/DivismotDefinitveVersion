@@ -528,6 +528,7 @@ MonoBehaviour:
   BackgroundUnorderedbuttons: {fileID: 957681885}
   buttonPrefab: {fileID: 675892476372357725, guid: 3d691f18a2dd32740893a11d89e50d10, type: 3}
   NextWordButton: {fileID: 901991164}
+  background: {fileID: 1089390739}
 --- !u!1 &901991162
 GameObject:
   m_ObjectHideFlags: 0

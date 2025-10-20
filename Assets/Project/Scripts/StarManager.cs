@@ -28,6 +28,10 @@ public class StarManager : MonoBehaviour
 
         actualStar = 0;
         fillAmountStars = new float[maxStars];
+        for(int i = 0; i < maxStars; i++)
+        {
+            fillAmountStars[i] = 0;
+        }
        
     }
     public void Update()
@@ -45,7 +49,7 @@ public class StarManager : MonoBehaviour
         {
             stars.Add(Instantiate(starsPrefab, new Vector3(initialPose + ((rectStarsPrefab.rect.width) * i), -40, 0), Quaternion.identity).GetComponent<Image>());
             stars[i].transform.SetParent(backgroundNewScene.transform, false);
-            stars[i].fillAmount = 0;
+            stars[i].fillAmount = fillAmountStars[i];
         }
 
     }
@@ -54,7 +58,8 @@ public class StarManager : MonoBehaviour
         fillAmountStars[actualStar] += amount;
         if (fillAmountStars[actualStar]>=1)
         {
-            fillAmountStars[actualStar++] = 1;
+            fillAmountStars[actualStar] = 1;
+            stars[actualStar].fillAmount = fillAmountStars[actualStar++];
         }
         
     }

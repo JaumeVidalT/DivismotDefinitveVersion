@@ -35,13 +35,11 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] private Button NextWordButton;
     [SerializeField] private GameObject background;
 
-    private float fillAmountAdd;
-    private bool startSong;    
+    private float fillAmountAdd;  
     void Start()
     {
         fillAmountAdd = 1.0f / WordManager.instance.WordManagerCount();
         wordOrder = 0;
-        startSong = false;
         letterPosition = 0;
 
         SetActivButton(NextWordButton, false);
@@ -51,37 +49,14 @@ public class GamePlayManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+
+    public void NextWord()
     {
-        if (startSong)//Song Gameplay
+        if(++wordOrder >= WordManager.instance.WordManagerCount())
         {
             SceneManager.LoadScene(2);
             return;
         }
-        if (wordOrder >= WordManager.instance.WordManagerCount() && !startSong)//Transition
-        {
-            Destroy(NextWordButton.gameObject);
-            CleanButtons();
-            startSong = true;
-            return;
-        }
-        if (wordSize == playerWord.Length&& WordManager.instance.WordManagerCount()>wordOrder)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
-        {
-            if (WordManager.instance.GetWord(wordOrder).CheckCorrectWord(playerWord))
-            {
-                StarManager.instance.AddFillAmount(fillAmountAdd);
-                }
-            SetActivButton(NextWordButton, true);       
-                        
-        }
-        
-        
-
-
-    }
-    public void NextWord()
-    {
-        ++wordOrder;
         CleanButtons();
         SetNewButtons();
         SetActivButton(NextWordButton, false);
@@ -105,9 +80,17 @@ public class GamePlayManager : MonoBehaviour
         }
         SetActivButton(OrderedButtons[letterPosition], true);
         OrderedButtons[letterPosition].GetComponentInChildren<TextMeshProUGUI>().text = letter ;
-        playerWord += letter;
-        
+        playerWord += letter;    
         letterPosition++;
+        if (wordSize == playerWord.Length)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
+        {
+            if (WordManager.instance.GetWord(wordOrder).CheckCorrectWord(playerWord))
+            {
+                StarManager.instance.AddFillAmount(fillAmountAdd);
+            }
+            SetActivButton(NextWordButton, true);
+
+        }
     }
     private void SetActivButton(Button button,bool state)
     {

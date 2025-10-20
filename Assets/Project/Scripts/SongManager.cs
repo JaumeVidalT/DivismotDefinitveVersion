@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class SongManager : MonoBehaviour
 {
@@ -16,8 +17,10 @@ public class SongManager : MonoBehaviour
     float dimoniTimer;
     float initialTimer;
     bool DimoniActive;
+    private float fillAmountAdd;
     void Start()    
     {
+
         initialTimer = Time.time;
         dimoniTimer = 10;
         for(int i = 0; i<WordManager.instance.WordManagerCount();++i)
@@ -30,6 +33,7 @@ public class SongManager : MonoBehaviour
         versos[wordOrder].gameObject.SetActive(true);
         DimoniActive = true;
         StarManager.instance.SetStarsOnScene(background);
+        fillAmountAdd= 2.0f/WordManager.instance.WordManagerCount();
     }
 
     // Update is called once per frame
@@ -61,6 +65,7 @@ public class SongManager : MonoBehaviour
     {
         if(++wordOrder== WordManager.instance.WordManagerCount())
         {
+            SceneManager.LoadScene(1);
             //Cambio de escena pendiente
             return;
         }
@@ -74,6 +79,7 @@ public class SongManager : MonoBehaviour
         {
             wordTexts[wordOrder].text = wordButtons[buttonPosition].GetComponentInChildren<TextMeshProUGUI>().text;
             wordTexts[wordOrder].color = Color.green;
+            StarManager.instance.AddFillAmount(fillAmountAdd);
             AddWordOrder();
         }
     }
