@@ -18,6 +18,7 @@ public class GamePlayManager : MonoBehaviour
     private int wordSize;
     private int wordOrder;
     private int letterPosition;
+    private int fontSize=90;
 
 
     [SerializeField] private List<Button> UnorderedButtons=new List<Button>();
@@ -78,10 +79,13 @@ public class GamePlayManager : MonoBehaviour
         {
             OrderedButtons[letterPosition].GetComponent<Image>().sprite = incorrectWord;
         }
+
         SetActivButton(OrderedButtons[letterPosition], true);
         OrderedButtons[letterPosition].GetComponentInChildren<TextMeshProUGUI>().text = letter ;
+        OrderedButtons[letterPosition].GetComponentInChildren<TextMeshProUGUI>().fontSize = fontSize;
         playerWord += letter;    
         letterPosition++;
+
         if (wordSize == playerWord.Length)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
         {
             if (WordManager.instance.GetWord(wordOrder).CheckCorrectWord(playerWord))
@@ -147,6 +151,7 @@ public class GamePlayManager : MonoBehaviour
 
             char letter = WordManager.instance.GetWord(wordOrder).GetDesorderedWord()[i];
             UnorderedButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
+            UnorderedButtons[i].GetComponentInChildren<TextMeshProUGUI>().fontSize = fontSize;
 
             UnorderedButtons[i].onClick.RemoveAllListeners();
 

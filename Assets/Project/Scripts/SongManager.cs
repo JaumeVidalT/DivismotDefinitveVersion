@@ -29,7 +29,7 @@ public class SongManager : MonoBehaviour
         initialTimer = Time.time;
         dimoniTimer = 10;
         DimoniActive = true;
-        /*StarManager.instance.SetStarsOnScene(background);*///estrellas recordar ponerlo luego
+        StarManager.instance.SetStarsOnScene(background);
         fillAmountAdd = 2.0f / WordManager.instance.WordManagerCount();
         
 
@@ -71,45 +71,53 @@ public class SongManager : MonoBehaviour
             //Cambio de escena pendiente
             return;
         }
-        if (wordTexts[wordOrder].gameObject.activeSelf != false)
-        {
-            ++versosOrder;
-            versos[versosOrder].gameObject.SetActive(true);
-        }
+       
         StartCoroutine(WaitForButtonPressed());
         
     }
 
     public void AddWordToSong(int buttonPosition)
     {
-        if (wordButtons[buttonPosition].GetComponentInChildren<TextMeshProUGUI>().text==WordManager.instance.GetWord(wordOrder).GetCorrectWord())
-        {
             wordTexts[wordOrder].text = wordButtons[buttonPosition].GetComponentInChildren<TextMeshProUGUI>().text;
             wordTexts[wordOrder].color = Color.green;
-            /*StarManager.instance.AddFillAmount(fillAmountAdd);*///Lo mismo quitar luego
+            StarManager.instance.AddFillAmount(fillAmountAdd);
             AddWordOrder();
-        }
     }
     IEnumerator WaitForButtonPressed()
     {
         
-        DimoniActive=false;
-        SetButtons();
+        DimoniActive=false;      
         yield return new WaitForSeconds(2f);
-        versos[wordOrder-1].gameObject.SetActive(false);
-        versos[wordOrder].gameObject.SetActive(true);
+        if (wordTexts[wordOrder].gameObject.activeInHierarchy != true)
+        {
+            versos[versosOrder++].gameObject.SetActive(false);
+            versos[versosOrder].gameObject.SetActive(true);
+
+        }
+        ClearButtons();
+        SetButtons();
+        
         initialTimer = Time.time;
         DimoniActive = true;
     }
+    private void ClearButtons()
+    {
+        foreach (Button button in wordButtons)
+        {
+            button.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            button.onClick.RemoveAllListeners();
+        }
+    }
     private void SetButtons()
     {
-        int correctWordSavePosition = Random.Range(0, 4);
+        int correctWordSavePosition = Random.Range(0, 5);
         wordButtons[correctWordSavePosition].GetComponentInChildren<TextMeshProUGUI>().text = WordManager.instance.GetWord(wordOrder).GetCorrectWord();
+        wordButtons[correctWordSavePosition].onClick.AddListener(() => AddWordToSong(correctWordSavePosition));
         int minimoI = 0;
         for (int i=0; i< wordButtons.Count-1;i=minimoI)
         {
-            int newRandomWord= Random.Range(0, WordManager.instance.WordManagerCount()-1);
-            int newRandomPosition= Random.Range(0, 4);
+            int newRandomWord= Random.Range(0, WordManager.instance.WordManagerCount());
+            int newRandomPosition= Random.Range(0, 5);
             if (newRandomWord != wordOrder && newRandomPosition != correctWordSavePosition && verifyWord(newRandomPosition, newRandomWord)) 
             {
                 minimoI++;
