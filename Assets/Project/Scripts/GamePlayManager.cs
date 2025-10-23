@@ -78,13 +78,14 @@ public class GamePlayManager : MonoBehaviour
         else
         {
             OrderedButtons[letterPosition].GetComponent<Image>().sprite = incorrectWord;
-        }
+        }   
 
         SetActivButton(OrderedButtons[letterPosition], true);
         OrderedButtons[letterPosition].GetComponentInChildren<TextMeshProUGUI>().text = letter ;
         OrderedButtons[letterPosition].GetComponentInChildren<TextMeshProUGUI>().fontSize = fontSize;
-        playerWord += letter;    
+        playerWord += letter;
         letterPosition++;
+
 
         if (wordSize == playerWord.Length)//First State Gameplay  Word=playerWord i worManager su tamaño es mayor
         {
@@ -103,6 +104,7 @@ public class GamePlayManager : MonoBehaviour
     public void DesactiveLetter(int buttonPosition)
     {
         UnorderedButtons[buttonPosition].gameObject.SetActive(false);
+
     }
     private float GetNewWidth(float buttonWidth)
     {
@@ -149,16 +151,18 @@ public class GamePlayManager : MonoBehaviour
         for (int i = 0; i < wordSize; i++)
         {
 
-            char letter = WordManager.instance.GetWord(wordOrder).GetDesorderedWord()[i];
-            UnorderedButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
+            char letterOrdered = WordManager.instance.GetWord(wordOrder).GetDesorderedWord()[i];
+            UnorderedButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = letterOrdered.ToString();
             UnorderedButtons[i].GetComponentInChildren<TextMeshProUGUI>().fontSize = fontSize;
 
             UnorderedButtons[i].onClick.RemoveAllListeners();
 
-            char letterCopy = letter;
+            char letterCopy = letterOrdered;
             int numberButtonCopy = i;
             UnorderedButtons[i].onClick.AddListener(() => AddLetter(letterCopy.ToString()));
             UnorderedButtons[i].onClick.AddListener(() => DesactiveLetter(numberButtonCopy));
+
+            
         }
 
     }

@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class StarManager : MonoBehaviour
     private List<Image> stars = new List<Image>();
 
     [SerializeField] private GameObject starsPrefab;
+    [SerializeField] private GameObject starsEmpty;
     [SerializeField] private GameObject background;
     private int starsLevel;
     private int maxStars=3;
@@ -47,6 +49,9 @@ public class StarManager : MonoBehaviour
         initialPose = initialPose - rectStarsPrefab.rect.width;
         for (int i = 0; i < 3; i++)
         {
+            Image emptyStar =Instantiate(starsEmpty, new Vector3(initialPose + ((rectStarsPrefab.rect.width) * i), -40, 0), Quaternion.identity).GetComponent<Image>();
+            emptyStar.transform.SetParent(backgroundNewScene.transform, false); 
+
             stars.Add(Instantiate(starsPrefab, new Vector3(initialPose + ((rectStarsPrefab.rect.width) * i), -40, 0), Quaternion.identity).GetComponent<Image>());
             stars[i].transform.SetParent(backgroundNewScene.transform, false);
             stars[i].fillAmount = fillAmountStars[i];
