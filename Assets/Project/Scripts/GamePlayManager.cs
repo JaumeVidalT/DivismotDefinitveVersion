@@ -23,8 +23,12 @@ public class GamePlayManager : MonoBehaviour
 
     [SerializeField] private List<Button> UnorderedButtons=new List<Button>();
     [SerializeField] private List<Button> OrderedButtons=new List<Button>();
+    
     [SerializeField] private Sprite correctWord;
     [SerializeField] private Sprite incorrectWord;
+
+    [SerializeField] private List<Sprite> wordImages = new List<Sprite>();
+    [SerializeField] private Image imageWord;
 
     [SerializeField] private Image BackgroundOrderedButtons;
     [SerializeField] private Image BackgroundUnorderedbuttons;
@@ -34,6 +38,7 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] private GameObject buttonPrefab;
 
     [SerializeField] private Button NextWordButton;
+    [SerializeField] private Button ResetWordButton;
     [SerializeField] private GameObject background;
 
     private float fillAmountAdd;  
@@ -44,13 +49,19 @@ public class GamePlayManager : MonoBehaviour
         letterPosition = 0;
 
         SetActivButton(NextWordButton, false);
+        SetActivButton(ResetWordButton, false);
         SetNewButtons();
         StarManager.instance.SetStarsOnScene(background);
 
     }
 
     // Update is called once per frame
-
+    public void ResetWord()
+    {
+        CleanButtons();
+        SetNewButtons();
+        SetActivButton(ResetWordButton, false);
+    }
     public void NextWord()
     {
         if(++wordOrder >= WordManager.instance.WordManagerCount())
@@ -92,8 +103,13 @@ public class GamePlayManager : MonoBehaviour
             if (WordManager.instance.GetWord(wordOrder).CheckCorrectWord(playerWord))
             {
                 StarManager.instance.AddFillAmount(fillAmountAdd);
+                SetActivButton(NextWordButton, true);
             }
-            SetActivButton(NextWordButton, true);
+            else
+            {
+                SetActivButton(ResetWordButton, true);
+            }
+           
 
         }
     }
@@ -128,6 +144,7 @@ public class GamePlayManager : MonoBehaviour
         playerWord ="";
         letterPosition = 0;
         wordSize = WordManager.instance.GetWord(wordOrder).GetCorrectWord().Length;
+        imageWord.sprite = wordImages[wordOrder];
 
         RectTransform ButtonPrefabRectangle = buttonPrefab.GetComponent<RectTransform>();
         float buttonOffSetX = ButtonPrefabRectangle.rect.width / 2 + DistanceWithBorders;
