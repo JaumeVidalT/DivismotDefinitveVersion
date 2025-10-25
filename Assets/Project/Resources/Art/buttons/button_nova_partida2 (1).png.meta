@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1959f144d50591646949e2403ed83898
+guid: 450e1bdff8733d74688dfce215591072
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8234603159998744670
-    second: noestrella_0
+      213: 7730413252947574752
+    second: button_nova_partida2 (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: noestrella_0
+      name: button_nova_partida2 (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 145
-        height: 139
+        width: 755
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e58c80af1ff274270800000000000000
-      internalID: 8234603159998744670
+      spriteID: 0ef79e465e1f74b60800000000000000
+      internalID: 7730413252947574752
       vertices: []
       indices: 
       edges: []
@@ -135,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      noestrella_0: 8234603159998744670
+      button_nova_partida2 (1)_0: 7730413252947574752
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

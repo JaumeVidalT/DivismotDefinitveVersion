@@ -40,6 +40,7 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] private Button NextWordButton;
     [SerializeField] private Button ResetWordButton;
     [SerializeField] private GameObject background;
+    [SerializeField] private TextMeshProUGUI wordOrderText;
 
     private float fillAmountAdd;  
     void Start()
@@ -47,11 +48,13 @@ public class GamePlayManager : MonoBehaviour
         fillAmountAdd = 1.0f / WordManager.instance.WordManagerCount();
         wordOrder = 0;
         letterPosition = 0;
+        wordOrderText.text=wordOrder.ToString();
 
         SetActivButton(NextWordButton, false);
         SetActivButton(ResetWordButton, false);
         SetNewButtons();
-        StarManager.instance.SetStarsOnScene(background);
+        StarManager.instance.ResetStars();
+        StarManager.instance.SetStarsOnScene(background,1);
 
     }
 
@@ -69,6 +72,7 @@ public class GamePlayManager : MonoBehaviour
             SceneManager.LoadScene(2);
             return;
         }
+        wordOrderText.text = wordOrder.ToString();
         CleanButtons();
         SetNewButtons();
         SetActivButton(NextWordButton, false);

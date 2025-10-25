@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class SongManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class SongManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private List<Button> wordButtons = new List<Button>();
     [SerializeField] private List<TextMeshProUGUI> wordTexts = new List<TextMeshProUGUI>();
+    
     [SerializeField] private List<Image> versos= new List<Image>();
     [SerializeField] private Image dimoniBar;
     [SerializeField] private GameObject background;
@@ -20,6 +22,9 @@ public class SongManager : MonoBehaviour
     private float initialTimer;
     private bool DimoniActive;
     private float fillAmountAdd;
+
+    [SerializeField] private List<AudioResource> audioSources = new List<AudioResource>();
+    [SerializeField] private GameObject audioObject;
     void Start()    
     {
         wordOrder= 0;
@@ -29,12 +34,13 @@ public class SongManager : MonoBehaviour
         initialTimer = Time.time;
         dimoniTimer = 10;
         DimoniActive = true;
-        StarManager.instance.SetStarsOnScene(background);
-        fillAmountAdd = 2.0f / WordManager.instance.WordManagerCount();
+        StarManager.instance.SetStarsOnScene(background,1);
         
 
         WordManager.instance.newOrderForSong();
+        fillAmountAdd = 2.0f / WordManager.instance.WordManagerCount();
         SetButtons();
+        audioObject.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
@@ -65,9 +71,9 @@ public class SongManager : MonoBehaviour
     private void AddWordOrder()
     {
         dimoniBar.fillAmount = 0f;
-        if (++wordOrder== WordManager.instance.WordManagerCount())
+        if (++wordOrder>= WordManager.instance.WordManagerCount())
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(3);
             //Cambio de escena pendiente
             return;
         }
@@ -78,10 +84,13 @@ public class SongManager : MonoBehaviour
 
     public void AddWordToSong(int buttonPosition)
     {
+        if (DimoniActive)
+        {
             wordTexts[wordOrder].text = wordButtons[buttonPosition].GetComponentInChildren<TextMeshProUGUI>().text;
             wordTexts[wordOrder].color = Color.green;
             StarManager.instance.AddFillAmount(fillAmountAdd);
             AddWordOrder();
+        }           
     }
     IEnumerator WaitForButtonPressed()
     {
@@ -92,6 +101,8 @@ public class SongManager : MonoBehaviour
         {
             versos[versosOrder++].gameObject.SetActive(false);
             versos[versosOrder].gameObject.SetActive(true);
+            audioObject.GetComponent<AudioSource>().resource=audioSources[versosOrder];
+            audioObject.GetComponent<AudioSource>().Play();
 
         }
         ClearButtons();

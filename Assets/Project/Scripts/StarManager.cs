@@ -13,6 +13,7 @@ public class StarManager : MonoBehaviour
     [SerializeField] private GameObject starsPrefab;
     [SerializeField] private GameObject starsEmpty;
     [SerializeField] private GameObject background;
+    [SerializeField] private List<Sprite> levelSprites=new List<Sprite>();
     private int starsLevel;
     private int maxStars=3;
     private int actualStar;
@@ -30,30 +31,41 @@ public class StarManager : MonoBehaviour
 
         actualStar = 0;
         fillAmountStars = new float[maxStars];
-        for(int i = 0; i < maxStars; i++)
-        {
-            fillAmountStars[i] = 0;
-        }
        
     }
     public void Update()
     {
-        stars[actualStar].fillAmount = fillAmountStars[actualStar];
+        if(stars.Count!=0)
+        {
+            stars[actualStar].fillAmount = fillAmountStars[actualStar];
+        }
+        
     }
-    public void SetStarsOnScene(GameObject backgroundNewScene)
+    public void ResetStars()
+    {
+        for (int i = 0; i < maxStars; i++)
+        {
+            fillAmountStars[i] = 0;
+        }
+        actualStar = 0;
+    }
+    public void SetStarsOnScene(GameObject backgroundNewScene,int scale)
     {
         stars.Clear();
         RectTransform rectStarsPrefab = starsPrefab.GetComponent<RectTransform>();
         RectTransform backgroundRect = backgroundNewScene.GetComponent<RectTransform>();
         float initialPose = 0;
-        initialPose = initialPose - rectStarsPrefab.rect.width;
+        initialPose = (initialPose - rectStarsPrefab.rect.width)*scale;
         for (int i = 0; i < 3; i++)
         {
-            Image emptyStar =Instantiate(starsEmpty, new Vector3(initialPose + ((rectStarsPrefab.rect.width) * i), -40, 0), Quaternion.identity).GetComponent<Image>();
+            Image emptyStar =Instantiate(starsEmpty, new Vector3(initialPose + ((rectStarsPrefab.rect.width) * i*scale), -40, 0), Quaternion.identity).GetComponent<Image>();
             emptyStar.transform.SetParent(backgroundNewScene.transform, false); 
+            emptyStar.transform.localScale = new Vector2(scale,scale);
 
-            stars.Add(Instantiate(starsPrefab, new Vector3(initialPose + ((rectStarsPrefab.rect.width) * i), -40, 0), Quaternion.identity).GetComponent<Image>());
+
+            stars.Add(Instantiate(starsPrefab, new Vector3(initialPose + ((rectStarsPrefab.rect.width) * i*scale), -40, 0), Quaternion.identity).GetComponent<Image>());
             stars[i].transform.SetParent(backgroundNewScene.transform, false);
+            stars[i].transform.localScale = new Vector2(scale, scale);
             stars[i].fillAmount = fillAmountStars[i];
         }
 
@@ -65,7 +77,15 @@ public class StarManager : MonoBehaviour
         {
             fillAmountStars[actualStar] = 1;
             stars[actualStar].fillAmount = fillAmountStars[actualStar++];
+            if(actualStar>3)
+            {
+                actualStar = 3;
+            }
         }
         
+    }
+    public void SetStarsInMap(Image imageLevel)
+    {
+        imageLevel.sprite=levelSprites[actualStar];
     }
 }
