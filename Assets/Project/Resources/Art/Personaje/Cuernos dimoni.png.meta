@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b9630e405fc4f80458e9d8f15d317489
+guid: f5212517ac4ceb44cb2dfc7ff2ec170b
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -8,21 +8,6 @@ TextureImporter:
   - first:
       213: -418920488732578766
     second: Cuernos dimoni_1
-  - first:
-      213: 8352136663905600368
-    second: Cuernos dimoni_2
-  - first:
-      213: 4782314811790262116
-    second: Cuernos dimoni_3
-  - first:
-      213: -1837585241931384340
-    second: Cuernos dimoni_4
-  - first:
-      213: 1861144066220833292
-    second: Cuernos dimoni_5
-  - first:
-      213: -86914739741578738
-    second: Cuernos dimoni_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,7 +113,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -147,10 +145,10 @@ TextureImporter:
       name: Cuernos dimoni_0
       rect:
         serializedVersion: 2
-        x: 826
-        y: 751
-        width: 164
-        height: 338
+        x: 0
+        y: 0
+        width: 42
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +167,10 @@ TextureImporter:
       name: Cuernos dimoni_1
       rect:
         serializedVersion: 2
-        x: 1239
-        y: 749
-        width: 164
-        height: 338
+        x: 99
+        y: 0
+        width: 42
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,116 +181,6 @@ TextureImporter:
       bones: []
       spriteID: 23c26f7f802bf2af0800000000000000
       internalID: -418920488732578766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cuernos dimoni_2
-      rect:
-        serializedVersion: 2
-        x: 1565
-        y: 685
-        width: 147
-        height: 156
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0730c975b00c8e370800000000000000
-      internalID: 8352136663905600368
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cuernos dimoni_3
-      rect:
-        serializedVersion: 2
-        x: 1687
-        y: 745
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 46ff8d8cbf13e5240800000000000000
-      internalID: 4782314811790262116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cuernos dimoni_4
-      rect:
-        serializedVersion: 2
-        x: 1692
-        y: 744
-        width: 7
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ce9fd2a55f59f76e0800000000000000
-      internalID: -1837585241931384340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cuernos dimoni_5
-      rect:
-        serializedVersion: 2
-        x: 1687
-        y: 737
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c0a3beedaac14d910800000000000000
-      internalID: 1861144066220833292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cuernos dimoni_6
-      rect:
-        serializedVersion: 2
-        x: 1686
-        y: 718
-        width: 6
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e0a25f331873bcef0800000000000000
-      internalID: -86914739741578738
       vertices: []
       indices: 
       edges: []
@@ -313,11 +201,6 @@ TextureImporter:
     nameFileIdTable:
       Cuernos dimoni_0: -2837515711684028744
       Cuernos dimoni_1: -418920488732578766
-      Cuernos dimoni_2: 8352136663905600368
-      Cuernos dimoni_3: 4782314811790262116
-      Cuernos dimoni_4: -1837585241931384340
-      Cuernos dimoni_5: 1861144066220833292
-      Cuernos dimoni_6: -86914739741578738
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

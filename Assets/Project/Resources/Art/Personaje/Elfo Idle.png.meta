@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: d7465e2ffe49b764ebc251468de15947
+guid: 969d74bde839d0e4a8bcd7a6e5932256
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1407881101885883366
     second: Elfo Idle_0
-  - first:
-      213: -4237581033184191442
-    second: Elfo Idle_1
-  - first:
-      213: 585891057374189306
-    second: Elfo Idle_2
-  - first:
-      213: -4515308161018135835
-    second: Elfo Idle_3
-  - first:
-      213: -3293392039055008485
-    second: Elfo Idle_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,7 +110,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -141,9 +142,9 @@ TextureImporter:
       name: Elfo Idle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 408
-        width: 790
+        x: 7
+        y: 6
+        width: 791
         height: 1176
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -155,94 +156,6 @@ TextureImporter:
       bones: []
       spriteID: 6e3c4e3276cc98310800000000000000
       internalID: 1407881101885883366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Elfo Idle_1
-      rect:
-        serializedVersion: 2
-        x: 728
-        y: 46
-        width: 74
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e2c9f1280861135c0800000000000000
-      internalID: -4237581033184191442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Elfo Idle_2
-      rect:
-        serializedVersion: 2
-        x: 731
-        y: 25
-        width: 48
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: af6dddfffc0812800800000000000000
-      internalID: 585891057374189306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Elfo Idle_3
-      rect:
-        serializedVersion: 2
-        x: 746
-        y: 0
-        width: 34
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ea771396276651c0800000000000000
-      internalID: -4515308161018135835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Elfo Idle_4
-      rect:
-        serializedVersion: 2
-        x: 747
-        y: 16
-        width: 19
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1dd60eb3658b42d0800000000000000
-      internalID: -3293392039055008485
       vertices: []
       indices: 
       edges: []
@@ -262,10 +175,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Elfo Idle_0: 1407881101885883366
-      Elfo Idle_1: -4237581033184191442
-      Elfo Idle_2: 585891057374189306
-      Elfo Idle_3: -4515308161018135835
-      Elfo Idle_4: -3293392039055008485
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
