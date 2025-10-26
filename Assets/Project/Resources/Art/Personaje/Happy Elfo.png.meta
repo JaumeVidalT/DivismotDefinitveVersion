@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 4ee9d7ed28246ee49b86066463a38c3d
+guid: dee950c3796763e498749826146a7ac6
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -6560526310632610609
     second: Happy Elfo_0
-  - first:
-      213: 8900350957960265381
-    second: Happy Elfo_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +110,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -132,9 +142,9 @@ TextureImporter:
       name: Happy Elfo_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 14
         y: 0
-        width: 853
+        width: 854
         height: 1152
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -146,28 +156,6 @@ TextureImporter:
       bones: []
       spriteID: fc4a323641454f4a0800000000000000
       internalID: -6560526310632610609
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Happy Elfo_1
-      rect:
-        serializedVersion: 2
-        x: 902
-        y: 454
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ae77894a06648b70800000000000000
-      internalID: 8900350957960265381
       vertices: []
       indices: 
       edges: []
@@ -187,7 +175,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Happy Elfo_0: -6560526310632610609
-      Happy Elfo_1: 8900350957960265381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

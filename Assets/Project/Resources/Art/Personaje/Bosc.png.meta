@@ -5,15 +5,6 @@ TextureImporter:
   - first:
       213: -422266591472838504
     second: Bosc_0
-  - first:
-      213: 3152340071457598593
-    second: Bosc_1
-  - first:
-      213: -6128388402416539838
-    second: Bosc_2
-  - first:
-      213: -5858874042530654927
-    second: Bosc_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,7 +110,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -138,10 +142,10 @@ TextureImporter:
       name: Bosc_0
       rect:
         serializedVersion: 2
-        x: 161
-        y: 832
-        width: 2158
-        height: 1589
+        x: 0
+        y: 88
+        width: 700
+        height: 532
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,72 +156,6 @@ TextureImporter:
       bones: []
       spriteID: 8981fb6b5cec32af0800000000000000
       internalID: -422266591472838504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bosc_1
-      rect:
-        serializedVersion: 2
-        x: 1576
-        y: 823
-        width: 35
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 18ca57ad79c5fbb20800000000000000
-      internalID: 3152340071457598593
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bosc_2
-      rect:
-        serializedVersion: 2
-        x: 1700
-        y: 820
-        width: 47
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 247a654b73793faa0800000000000000
-      internalID: -6128388402416539838
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bosc_3
-      rect:
-        serializedVersion: 2
-        x: 1945
-        y: 813
-        width: 37
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1351437991911bea0800000000000000
-      internalID: -5858874042530654927
       vertices: []
       indices: 
       edges: []
@@ -237,9 +175,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Bosc_0: -422266591472838504
-      Bosc_1: 3152340071457598593
-      Bosc_2: -6128388402416539838
-      Bosc_3: -5858874042530654927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

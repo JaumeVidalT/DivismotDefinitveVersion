@@ -8,9 +8,6 @@ TextureImporter:
   - first:
       213: -3202720099371512706
     second: Tornem_1
-  - first:
-      213: -6939088076156527817
-    second: Tornem_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,7 +113,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -135,10 +145,10 @@ TextureImporter:
       name: Tornem_0
       rect:
         serializedVersion: 2
-        x: 231
-        y: 1735
-        width: 231
-        height: 160
+        x: 1
+        y: 168
+        width: 100
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,10 +167,10 @@ TextureImporter:
       name: Tornem_1
       rect:
         serializedVersion: 2
-        x: 476
-        y: 1699
-        width: 1773
-        height: 1088
+        x: 83
+        y: 156
+        width: 616
+        height: 388
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,28 +181,6 @@ TextureImporter:
       bones: []
       spriteID: e7c05f1d907ad83d0800000000000000
       internalID: -3202720099371512706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tornem_2
-      rect:
-        serializedVersion: 2
-        x: 1785
-        y: 1613
-        width: 26
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 73b9a8bd82863bf90800000000000000
-      internalID: -6939088076156527817
       vertices: []
       indices: 
       edges: []
@@ -213,7 +201,6 @@ TextureImporter:
     nameFileIdTable:
       Tornem_0: 5193480706841302339
       Tornem_1: -3202720099371512706
-      Tornem_2: -6939088076156527817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
