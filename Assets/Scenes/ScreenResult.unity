@@ -722,10 +722,10 @@ MonoBehaviour:
   background: {fileID: 1562860721}
   ScoreBackground: {fileID: 1109325247}
   scoreSprites:
-  - {fileID: -4683099994243296938, guid: 5338c834842945040942742f45189b09, type: 3}
-  - {fileID: -8833351831769282109, guid: afdff7f0781f33e4dac95d0c7d495e7d, type: 3}
-  - {fileID: -5798733529702865711, guid: 750398dbe4ef64c42be174bc2d968f6d, type: 3}
-  - {fileID: -617351973089158693, guid: 3542a196142444e47adae62ff863a5df, type: 3}
+  - {fileID: -4683099994243296938, guid: d471d68f81d70d2459df9c04ac08a279, type: 3}
+  - {fileID: -8833351831769282109, guid: f09bd7b43b48cd9408ea690e81a06daa, type: 3}
+  - {fileID: -5798733529702865711, guid: d7fbc13846492574494a1ff070f9be5c, type: 3}
+  - {fileID: -617351973089158693, guid: aa78889ff18c790418c83d133f57ebb1, type: 3}
   textoScore: {fileID: 1221433697}
 --- !u!4 &674780150
 Transform:
@@ -903,7 +903,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4683099994243296938, guid: 5338c834842945040942742f45189b09, type: 3}
+  m_Sprite: {fileID: -4683099994243296938, guid: d471d68f81d70d2459df9c04ac08a279, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

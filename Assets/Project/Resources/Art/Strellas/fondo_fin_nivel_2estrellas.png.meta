@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: afdff7f0781f33e4dac95d0c7d495e7d
+guid: d7fbc13846492574494a1ff070f9be5c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8833351831769282109
-    second: fondo_fin_nivel_1estrellas_0
+      213: -5798733529702865711
+    second: fondo_fin_nivel_2estrellas_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fondo_fin_nivel_1estrellas_0
+      name: fondo_fin_nivel_2estrellas_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c988536f41a96580800000000000000
-      internalID: -8833351831769282109
+      spriteID: 1d4e9e6e392c68fa0800000000000000
+      internalID: -5798733529702865711
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fondo_fin_nivel_1estrellas_0: -8833351831769282109
+      fondo_fin_nivel_2estrellas_0: -5798733529702865711
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
