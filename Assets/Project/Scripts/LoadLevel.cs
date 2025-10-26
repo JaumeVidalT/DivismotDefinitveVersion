@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ public class LoadLeve : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]Image imagenNivel;
+    [SerializeField] private List<Sprite> levelSprites = new List<Sprite>();
 
     public void LoadLevel(int level)
     {
@@ -13,6 +15,6 @@ public class LoadLeve : MonoBehaviour
     }
     public void Start()
     {
-        StarManager.instance.SetStarsInMap(imagenNivel);
+        StarManager.instance.SetStarsInMap(imagenNivel, levelSprites);
     }
 }

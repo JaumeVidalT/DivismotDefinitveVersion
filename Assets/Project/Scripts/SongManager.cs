@@ -25,6 +25,7 @@ public class SongManager : MonoBehaviour
 
     [SerializeField] private List<AudioResource> audioSources = new List<AudioResource>();
     [SerializeField] private GameObject audioObject;
+    [SerializeField] Button botonSiguienteVerso;
     void Start()    
     {
         wordOrder= 0;
@@ -99,17 +100,32 @@ public class SongManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if (wordTexts[wordOrder].gameObject.activeInHierarchy != true)
         {
-            versos[versosOrder++].gameObject.SetActive(false);
-            versos[versosOrder].gameObject.SetActive(true);
-            audioObject.GetComponent<AudioSource>().resource=audioSources[versosOrder];
-            audioObject.GetComponent<AudioSource>().Play();
+
+            botonSiguienteVerso.gameObject.SetActive(true);
 
         }
+        else
+        {
+            ClearButtons();
+            SetButtons();
+            DimoniActive = true;
+            initialTimer = Time.time;
+        }
+
+        
+
+    }
+    public void ButtonNextVerso()
+    {
         ClearButtons();
         SetButtons();
-        
-        initialTimer = Time.time;
+        versos[versosOrder++].gameObject.SetActive(false);
+        versos[versosOrder].gameObject.SetActive(true);
+        audioObject.GetComponent<AudioSource>().resource = audioSources[versosOrder];
+        audioObject.GetComponent<AudioSource>().Play();
         DimoniActive = true;
+        initialTimer = Time.time;
+        botonSiguienteVerso.gameObject.SetActive(false);
     }
     private void ClearButtons()
     {

@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,6 @@ public class StarManager : MonoBehaviour
     [SerializeField] private GameObject starsPrefab;
     [SerializeField] private GameObject starsEmpty;
     [SerializeField] private GameObject background;
-    [SerializeField] private List<Sprite> levelSprites=new List<Sprite>();
     private int starsLevel;
     private int maxStars=3;
     private int actualStar;
@@ -84,8 +84,17 @@ public class StarManager : MonoBehaviour
         }
         
     }
-    public void SetStarsInMap(Image imageLevel)
+    public void SetStarsInMap(Image imageLevel,List<Sprite>spriteLevel)
     {
-        imageLevel.sprite=levelSprites[actualStar];
+        imageLevel.sprite= spriteLevel[actualStar];
+    }
+    public int GiveScore()
+    {
+        float result=0;
+        for (int i = 0; i < fillAmountStars.Length; i++)
+        {
+            result += fillAmountStars[i] * 100.0f;
+        }
+        return (int)result;
     }
 }

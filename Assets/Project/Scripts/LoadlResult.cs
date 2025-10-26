@@ -1,16 +1,23 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class LoadlResult : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] GameObject background;
+    [SerializeField] private GameObject background;
+    [SerializeField] private Image ScoreBackground;
+    [SerializeField] private List<Sprite> scoreSprites = new List<Sprite>();
+    [SerializeField] private TextMeshProUGUI textoScore;
 
     void Start()
     {
-        StarManager.instance.SetStarsOnScene(background,2);
-        
+        StarManager.instance.SetStarsInMap(ScoreBackground, scoreSprites);
+        textoScore.text= StarManager.instance.GiveScore().ToString();
+
+
     }
     public void LoadLevel(int level)
     {
