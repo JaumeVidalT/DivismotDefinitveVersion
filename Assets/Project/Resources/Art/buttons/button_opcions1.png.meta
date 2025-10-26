@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 9cf409af8e8c30945a688d5d7c180a5c
+guid: e201cd162dd11934eb88d78e28eef5b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7400843122158917750
-    second: Ludi personajes_0
-  - first:
-      213: -2174604143876990015
-    second: Ludi personajes_1
-  - first:
-      213: 5178525487105777226
-    second: Ludi personajes_2
+      213: -1783845785608494042
+    second: button_opcions1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,7 +110,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -132,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ludi personajes_0
+      name: button_opcions1_0
       rect:
         serializedVersion: 2
-        x: 252
-        y: 2109
-        width: 711
-        height: 1235
+        x: 0
+        y: 0
+        width: 672
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,52 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 678dca6bb9315b660800000000000000
-      internalID: 7400843122158917750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ludi personajes_1
-      rect:
-        serializedVersion: 2
-        x: 1131
-        y: 2109
-        width: 681
-        height: 1235
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1cb9e1d7d0142d1e0800000000000000
-      internalID: -2174604143876990015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ludi personajes_2
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 732
-        width: 924
-        height: 1315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4e1f375e71ddd740800000000000000
-      internalID: 5178525487105777226
+      spriteID: 6246abe85b18e37e0800000000000000
+      internalID: -1783845785608494042
       vertices: []
       indices: 
       edges: []
@@ -211,9 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ludi personajes_0: 7400843122158917750
-      Ludi personajes_1: -2174604143876990015
-      Ludi personajes_2: 5178525487105777226
+      button_opcions1_0: -1783845785608494042
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

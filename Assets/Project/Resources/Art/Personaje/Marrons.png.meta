@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: -7975257519785569837
     second: Marrons_0
-  - first:
-      213: 6230379935304536769
-    second: Marrons_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +110,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -132,10 +142,10 @@ TextureImporter:
       name: Marrons_0
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1197
-        width: 1585
-        height: 1584
+        x: 7
+        y: 6
+        width: 687
+        height: 686
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,28 +156,6 @@ TextureImporter:
       bones: []
       spriteID: 3d11bec5a81325190800000000000000
       internalID: -7975257519785569837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Marrons_1
-      rect:
-        serializedVersion: 2
-        x: 2413
-        y: 2187
-        width: 67
-        height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c25c8b8a81c67650800000000000000
-      internalID: 6230379935304536769
       vertices: []
       indices: 
       edges: []
@@ -187,7 +175,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Marrons_0: -7975257519785569837
-      Marrons_1: 6230379935304536769
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
