@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d3cbf9462d24c469a6367de0cd56b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imagenNivel: {fileID: 2058984621}
+  imagenNivel: {fileID: 2058984620}
   levelSprites:
   - {fileID: 21300000, guid: 3a19a4d8563dad24caa849446c1aae63, type: 3}
   - {fileID: 21300000, guid: 886c59d8401b8a44aa037182851546b1, type: 3}

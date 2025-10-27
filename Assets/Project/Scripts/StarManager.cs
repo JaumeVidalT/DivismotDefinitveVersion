@@ -84,10 +84,20 @@ public class StarManager : MonoBehaviour
         }
         
     }
-    public void SetStarsInMap(Image imageLevel,List<Sprite>spriteLevel)
+    public void SetStarsInMap(Button imageLevel,List<Sprite>spriteLevel)
     {
         int Stars = PlayerPrefs.GetInt("Levels");
-        imageLevel.sprite= spriteLevel[Stars];
+        imageLevel.GetComponent<Image>().sprite = spriteLevel[Stars];
+        SpriteState sprite = imageLevel.spriteState;
+        sprite.highlightedSprite= spriteLevel[Stars];
+        sprite.pressedSprite = spriteLevel[Stars];
+        sprite.selectedSprite = spriteLevel[Stars];
+        imageLevel.spriteState=sprite;
+    }
+    public void SetStarsRestult(Image iamageLevel,List<Sprite>spriteLevel)
+    {
+        int Stars = PlayerPrefs.GetInt("Levels");
+        iamageLevel.sprite=spriteLevel[Stars];
     }
     public int GiveScore()
     {

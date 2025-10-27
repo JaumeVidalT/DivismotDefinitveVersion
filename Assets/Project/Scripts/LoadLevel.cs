@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LoadLeve : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField]Image imagenNivel;
+    [SerializeField]Button imagenNivel;
     [SerializeField] private List<Sprite> levelSprites = new List<Sprite>();
 
     public void LoadLevel(int level)

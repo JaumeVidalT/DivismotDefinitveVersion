@@ -15,7 +15,7 @@ public class LoadlResult : MonoBehaviour
     void Start()
     {
         StarManager.instance.SaveScore();
-        StarManager.instance.SetStarsInMap(ScoreBackground, scoreSprites);
+        StarManager.instance.SetStarsRestult(ScoreBackground, scoreSprites);
         textoScore.text= StarManager.instance.GiveScore().ToString();
 
 
