@@ -77,7 +77,7 @@ public class SongManager : MonoBehaviour
         dimoniBar.fillAmount = 0f;
         if (++wordOrder>= WordManager.instance.WordManagerCount())
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
             //Cambio de escena pendiente
             return;
         }
