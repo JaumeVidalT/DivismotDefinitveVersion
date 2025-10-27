@@ -69,7 +69,7 @@ public class GamePlayManager : MonoBehaviour
     {
         if(++wordOrder >= WordManager.instance.WordManagerCount())
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
             return;
         }
         wordOrderText.text = wordOrder.ToString();

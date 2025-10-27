@@ -16,6 +16,7 @@ public class SongManager : MonoBehaviour
     [SerializeField] private List<Image> versos= new List<Image>();
     [SerializeField] private Image dimoniBar;
     [SerializeField] private GameObject background;
+    [SerializeField] private Image CuernosPrefab;
     private int wordOrder;
     private int versosOrder;
     private float dimoniTimer;
@@ -54,8 +55,10 @@ public class SongManager : MonoBehaviour
         
         if (dimoniBar.fillAmount == 1 &&WordManager.instance.WordManagerCount()>wordOrder)
         {
-            wordTexts[wordOrder].text= WordManager.instance.GetWord(wordOrder).GetDesorderedWord();
+            wordTexts[wordOrder].text = WordManager.instance.GetWord(wordOrder).GetDesorderedWord();
             wordTexts[wordOrder].color = Color.red;
+            Image cuernos = Instantiate(CuernosPrefab, new Vector2(0, 60), Quaternion.identity);
+            cuernos.gameObject.transform.SetParent(wordTexts[wordOrder].transform, false);
             AddWordOrder();
 
         }
@@ -74,7 +77,7 @@ public class SongManager : MonoBehaviour
         dimoniBar.fillAmount = 0f;
         if (++wordOrder>= WordManager.instance.WordManagerCount())
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
             //Cambio de escena pendiente
             return;
         }
@@ -91,7 +94,20 @@ public class SongManager : MonoBehaviour
             wordTexts[wordOrder].color = Color.green;
             StarManager.instance.AddFillAmount(fillAmountAdd);
             AddWordOrder();
-        }           
+        }
+        
+    }
+    public void IncorrectWord()
+    {
+        if (DimoniActive) 
+        {
+            wordTexts[wordOrder].text = WordManager.instance.GetWord(wordOrder).GetDesorderedWord();
+            wordTexts[wordOrder].color = Color.red;
+            Image cuernos = Instantiate(CuernosPrefab, new Vector2(0, 60), Quaternion.identity);
+            cuernos.gameObject.transform.SetParent(wordTexts[wordOrder].transform, false);
+            AddWordOrder();
+        }
+       
     }
     IEnumerator WaitForButtonPressed()
     {
@@ -149,6 +165,7 @@ public class SongManager : MonoBehaviour
             {
                 minimoI++;
                 wordButtons[newRandomPosition].GetComponentInChildren<TextMeshProUGUI>().text=WordManager.instance.GetWord(newRandomWord).GetCorrectWord();
+                wordButtons[newRandomPosition].onClick.AddListener(() => IncorrectWord());
                 Debug.Log(WordManager.instance.GetWord(newRandomWord).GetCorrectWord());
             }
            

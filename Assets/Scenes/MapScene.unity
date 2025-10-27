@@ -322,11 +322,6 @@ MonoBehaviour:
   starsPrefab: {fileID: 2362837433624440284, guid: 659916c03c7f52947bcb7722b740f163, type: 3}
   starsEmpty: {fileID: 3486282562616673241, guid: 91a60dbd7e078464dbc8eef3d1b64cec, type: 3}
   background: {fileID: 0}
-  levelSprites:
-  - {fileID: 21300000, guid: ba62116e64ccb5d4ba46c101c11ac7d6, type: 3}
-  - {fileID: 21300000, guid: 8732240b553bbfb4b8706d9fd198193b, type: 3}
-  - {fileID: 21300000, guid: 2d6c544f354a3274c8fcd31e76876716, type: 3}
-  - {fileID: 21300000, guid: 712a45eb9edffa543843f9db095e79a1, type: 3}
 --- !u!4 &702492090
 Transform:
   m_ObjectHideFlags: 0
@@ -715,6 +710,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imagenNivel: {fileID: 2058984621}
+  levelSprites:
+  - {fileID: 21300000, guid: 3a19a4d8563dad24caa849446c1aae63, type: 3}
+  - {fileID: 21300000, guid: 886c59d8401b8a44aa037182851546b1, type: 3}
+  - {fileID: 21300000, guid: 023e7ab0f4e54f2459677102337514bb, type: 3}
+  - {fileID: 21300000, guid: 89e4356b778008546b9a6aaccfaea010, type: 3}
 --- !u!4 &1389640045
 Transform:
   m_ObjectHideFlags: 0
@@ -951,7 +951,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

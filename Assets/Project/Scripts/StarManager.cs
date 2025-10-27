@@ -86,7 +86,8 @@ public class StarManager : MonoBehaviour
     }
     public void SetStarsInMap(Image imageLevel,List<Sprite>spriteLevel)
     {
-        imageLevel.sprite= spriteLevel[actualStar];
+        int Stars = PlayerPrefs.GetInt("Levels");
+        imageLevel.sprite= spriteLevel[Stars];
     }
     public int GiveScore()
     {
@@ -96,5 +97,10 @@ public class StarManager : MonoBehaviour
             result += fillAmountStars[i] * 100.0f;
         }
         return (int)result;
+    }
+    public void SaveScore()
+    {
+        PlayerPrefs.SetInt("Levels", actualStar);
+        PlayerPrefs.Save();
     }
 }
