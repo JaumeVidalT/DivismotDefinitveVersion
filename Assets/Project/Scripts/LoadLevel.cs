@@ -8,6 +8,8 @@ public class LoadLeve : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]Button imagenNivel;
     [SerializeField] private List<Sprite> levelSprites = new List<Sprite>();
+    [SerializeField] private List<Sprite> highlightedSprite= new List<Sprite> ();
+    [SerializeField] private List<Sprite> spriteSelected= new List<Sprite> ();
 
     public void LoadLevel(int level)
     {
@@ -15,6 +17,6 @@ public class LoadLeve : MonoBehaviour
     }
     public void Start()
     {
-        StarManager.instance.SetStarsInMap(imagenNivel, levelSprites);
+        StarManager.instance.SetStarsInMap(imagenNivel, levelSprites,highlightedSprite,spriteSelected);
     }
 }

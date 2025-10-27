@@ -715,6 +715,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 886c59d8401b8a44aa037182851546b1, type: 3}
   - {fileID: 21300000, guid: 023e7ab0f4e54f2459677102337514bb, type: 3}
   - {fileID: 21300000, guid: 89e4356b778008546b9a6aaccfaea010, type: 3}
+  highlightedSprite:
+  - {fileID: 21300000, guid: 07836661a64720a448fb1a2e83517922, type: 3}
+  - {fileID: 21300000, guid: c776ffd76c39ef14496ed7ee4d773588, type: 3}
+  - {fileID: 21300000, guid: 957cf8ea63c34414dae3461f39d217ff, type: 3}
+  - {fileID: 21300000, guid: 712a45eb9edffa543843f9db095e79a1, type: 3}
+  spriteSelected:
+  - {fileID: 21300000, guid: da9456a9ed463f546a06873411b5044f, type: 3}
+  - {fileID: 21300000, guid: 8732240b553bbfb4b8706d9fd198193b, type: 3}
+  - {fileID: 21300000, guid: 2d6c544f354a3274c8fcd31e76876716, type: 3}
+  - {fileID: 21300000, guid: fc28afb08ca424942beb8379177531f4, type: 3}
 --- !u!4 &1389640045
 Transform:
   m_ObjectHideFlags: 0
