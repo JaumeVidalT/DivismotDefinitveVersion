@@ -33,7 +33,7 @@ public class SongManager : MonoBehaviour
         versosOrder = 0;
         versos[versosOrder].gameObject.SetActive(true);
 
-        initialTimer = Time.time;
+
         dimoniTimer = 10;
         DimoniActive = true;
         StarManager.instance.SetStarsOnScene(background,1);
@@ -43,6 +43,7 @@ public class SongManager : MonoBehaviour
         fillAmountAdd = 2.0f / WordManager.instance.WordManagerCount();
         SetButtons();
         audioObject.GetComponent<AudioSource>().Play();
+        StartCoroutine(waitForSong());
     }
 
     // Update is called once per frame
@@ -63,6 +64,13 @@ public class SongManager : MonoBehaviour
 
         }
         
+    }
+    IEnumerator waitForSong()
+    {
+        DimoniActive = false;
+        yield return new WaitForSeconds(4);
+        initialTimer = Time.time;
+        DimoniActive = true;
     }
     private void DimoniTimerUpdate()
     {
@@ -113,7 +121,7 @@ public class SongManager : MonoBehaviour
     {
         
         DimoniActive=false;      
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         if (wordTexts[wordOrder].gameObject.activeInHierarchy != true)
         {
 
